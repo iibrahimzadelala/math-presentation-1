@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrices, Minors, Cofactors & Inverses by LalaIbrahimzade</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  @media print {
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #0b192c !important; /* Тёмный фон */
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .slide {
+      page-break-after: always !important;
+      page-break-inside: avoid !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 40px !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title Slide (green) -->
+<div class="slide slide-dark">
+  <div class="slide-body" style="justify-content: center;">
+    <span class="category-tag">Linear Algebra Masterclass</span>
+    <h1 class="hero-title">Matrices, Minors, Cofactors & Inverses</h1>
+    <p class="hero-subtitle">Comprehensive Theory & Real-World Applications</p>
+    <div class="math-block" style="display: inline-block; max-width: max-content;">
+A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Lecture Presentation</span>
+    <span>Slide 1 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 2: Fundamentals -->
+
+<!-- SLIDE 2: Fundamentals -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">1. Foundation</span>
+    <h2 class="slide-title">Fundamentals of Matrices</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card">
+        <div>
+          <h3 class="card-title">What is a Matrix?</h3>
+          <p class="text-p">A rectangular array of numbers, symbols, or expressions arranged in <strong>m rows</strong> and <strong>n columns</strong>.</p>
+          
+          <div class="matrix-box">
+            <span style="font-weight: bold; margin-right: 10px;">A =</span>
+            <div class="matrix-brackets">
+              <table class="matrix-table">
+                <tr>
+                  <td>a<sub>11</sub></td>
+                  <td>a<sub>12</sub></td>
+                  <td>a<sub>13</sub></td>
+                </tr>
+                <tr>
+                  <td>a<sub>21</sub></td>
+                  <td>a<sub>22</sub></td>
+                  <td>a<sub>23</sub></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="text-p">Dimension is expressed as <strong>m × n</strong> (Rows × Columns).</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Key Matrix Types</h3>
+        <ul class="bullet-list">
+          <li><strong>Square Matrix:</strong> Same number of rows and columns (m = n). Required for determinants and inverses.</li>
+          <li><strong>Identity Matrix (I):</strong> Diagonal contains 1s, all other entries are 0. Serves as '1' in matrix algebra.</li>
+          <li><strong>Zero Matrix (O):</strong> Matrix with all zero entries.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 2 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 3: Operations -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">2. Operations</span>
+    <h2 class="slide-title">Core Matrix Operations</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Карточка 1 -->
+      <div class="card">
+        <h3 class="card-title">Addition & Scalar Multiplication</h3>
+        <ul class="bullet-list">
+          <li><strong>Addition (A + B):</strong> Performed element-by-element.
+            <div class="math-example">
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table></div>
+              <span>+</span>
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td></tr></table></div>
+              <span>=</span>
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>6</td><td>8</td></tr><tr><td>10</td><td>12</td></tr></table></div>
+            </div>
+          </li>
+          <li><strong>Scalar Multiplication (k·A):</strong> Multiply every element by k.
+            <div class="math-example">
+              <span>3 ×</span>
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table></div>
+              <span>=</span>
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>3</td><td>6</td></tr><tr><td>9</td><td>12</td></tr></table></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="card">
+        <h3 class="card-title">Matrix Multiplication (A · B)</h3>
+        <ul class="bullet-list">
+          <li><strong>Dimension Rule:</strong> Columns of A must equal rows of B.</li>
+          <li><strong>Calculation Example:</strong> Row × Column dot product.
+            <div class="math-example">
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>1</td><td>2</td></tr><tr><td>0</td><td>3</td></tr></table></div>
+              <span>·</span>
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>2</td><td>1</td></tr><tr><td>4</td><td>0</td></tr></table></div>
+              <span>=</span>
+              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>10</td><td>1</td></tr><tr><td>12</td><td>0</td></tr></table></div>
+            </div>
+          </li>
+          <li><strong>Non-Commutative:</strong> Generally, <strong>A · B ≠ B · A</strong>.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 3 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 4: Determinants -->
+<!-- SLIDE 4: Determinant -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">2. Operations</span>
+    <h2 class="slide-title">Matrix Determinant (|A| or det A)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка -->
+      <div class="card">
+        <h3 class="card-title">2×2 Determinant Formula</h3>
+        <p class="text-p">A scalar value calculated strictly for square matrices.</p>
+
+        <div class="det-box">
+          <span>det</span>
+          <div class="det-bars">
+            <table class="matrix-table mini">
+              <tr><td>a</td><td>b</td></tr>
+              <tr><td>c</td><td>d</td></tr>
+            </table>
+          </div>
+          <span>= (a·d − b·c)</span>
+        </div>
+
+        <div class="det-box" style="font-size: 16px; margin-top: 15px;">
+          <strong>Example:</strong>
+          <span>det</span>
+          <div class="det-bars">
+            <table class="matrix-table mini">
+              <tr><td>4</td><td>3</td></tr>
+              <tr><td>1</td><td>2</td></tr>
+            </table>
+          </div>
+          <span>= (4·2 − 3·1) = 5</span>
+        </div>
+      </div>
+
+      <!-- Правая карточка -->
+      <div class="card">
+        <h3 class="card-title">Singular vs Non-Singular</h3>
+        <ul class="bullet-list">
+          <li><strong>Singular Matrix:</strong> det(A) = 0. The matrix has no inverse.</li>
+          <li><strong>Non-Singular Matrix:</strong> det(A) ≠ 0. The matrix is invertible.</li>
+          <li><strong>Geometric View:</strong> Determinant measures the area/volume scaling factor of a transformation.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 4 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 5: Minors -->
+<!-- SLIDE 5: Minor of a Matrix -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">4. Minor Extraction</span>
+    <h2 class="slide-title">Minor of a Matrix (M<sub>ij</sub>)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="card">
+      <h3 class="card-title">Definition & Calculation</h3>
+      <p class="text-p">
+        The Minor <strong>M<sub>ij</sub></strong> of element <strong>a<sub>ij</sub></strong> is the determinant of the smaller submatrix left after deleting the <strong>i-th row</strong> and <strong>j-th column</strong>.
+      </p>
+
+      <!-- Матрица A -->
+      <div style="margin-top: 15px;">
+        <p class="text-p" style="margin-bottom: 8px;"><strong>Given Matrix:</strong></p>
+        <div class="matrix-box">
+          <span style="font-weight: bold; margin-right: 10px;">A =</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table">
+              <tr><td>1</td><td>2</td><td>3</td></tr>
+              <tr><td>0</td><td>4</td><td>5</td></tr>
+              <tr><td>1</td><td>0</td><td>6</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Вычисление минора -->
+      <div style="margin-top: 20px;">
+        <p class="text-p" style="margin-bottom: 8px;">
+          To find Minor <strong>M<sub>11</sub></strong> (delete Row 1, Column 1):
+        </p>
+        <div class="det-box">
+          <span>M<sub>11</sub> = det</span>
+          <div class="det-bars">
+            <table class="matrix-table mini">
+              <tr><td>4</td><td>5</td></tr>
+              <tr><td>0</td><td>6</td></tr>
+            </table>
+          </div>
+          <span>= (4·6 − 5·0) = 24</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 5 / 14</span>
+  </div>
+</div>
+
+
+<!-- SLIDE 6: Cofactor of a Matrix -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">5. Sign Patterns</span>
+    <h2 class="slide-title">Cofactor of a Matrix (C<sub>ij</sub>)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка -->
+      <div class="card">
+        <h3 class="card-title">The Cofactor Formula</h3>
+        <p class="text-p">
+          A cofactor is a minor with a position-based sign (+ or −) applied.
+        </p>
+
+        <div class="matrix-box" style="font-size: 20px;">
+          <span>C<sub>ij</sub> = (−1)<sup>i + j</sup> · M<sub>ij</sub></span>
+        </div>
+
+        <ul class="bullet-list">
+          <li><strong>If (i + j) is EVEN:</strong> C<sub>ij</sub> = +M<sub>ij</sub></li>
+          <li><strong>If (i + j) is ODD:</strong> C<sub>ij</sub> = −M<sub>ij</sub></li>
+        </ul>
+      </div>
+
+      <!-- Правая карточка -->
+      <div class="card">
+        <h3 class="card-title">Checkerboard Sign Grid</h3>
+        
+        <div class="matrix-box">
+          <div class="matrix-brackets">
+            <table class="matrix-table">
+              <tr><td>+</td><td>−</td><td>+</td></tr>
+              <tr><td>−</td><td>+</td><td>−</td></tr>
+              <tr><td>+</td><td>−</td><td>+</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <p class="text-p" style="margin-top: 15px;">
+          Signs alternate across every row and column.
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 6 / 14</span>
+  </div>
+</div>
+
+
+<!-- SLIDE 7: Adjugate -->
+<!-- SLIDE 7: Cofactor Matrix & Adjugate -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">6. Matrix Transformation</span>
+    <h2 class="slide-title">Cofactor Matrix & Adjugate (adj A)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка -->
+      <div class="card">
+        <h3 class="card-title">1. Cofactor Matrix (C)</h3>
+        <p class="text-p">
+          Replace every entry <strong>a<sub>ij</sub></strong> in Matrix A with its calculated cofactor <strong>C<sub>ij</sub></strong>.
+        </p>
+
+        <div class="matrix-box">
+          <span style="font-weight: bold; margin-right: 10px;">C =</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table">
+              <tr>
+                <td>C<sub>11</sub></td>
+                <td>C<sub>12</sub></td>
+                <td>C<sub>13</sub></td>
+              </tr>
+              <tr>
+                <td>C<sub>21</sub></td>
+                <td>C<sub>22</sub></td>
+                <td>C<sub>23</sub></td>
+              </tr>
+              <tr>
+                <td>C<sub>31</sub></td>
+                <td>C<sub>32</sub></td>
+                <td>C<sub>33</sub></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Правая карточка -->
+      <div class="card">
+        <h3 class="card-title">2. Adjugate Matrix (adj A)</h3>
+        <p class="text-p">
+          The Adjugate is the <strong>Transpose</strong> of the Cofactor Matrix C.
+        </p>
+
+        <div class="matrix-box" style="font-size: 22px; margin: 25px 0;">
+          <span>adj(A) = C<sup>T</sup></span>
+        </div>
+
+        <p class="text-p">
+          Swap rows with columns: element <strong>C<sub>ij</sub></strong> moves to position <strong>(j, i)</strong>.
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 7 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 8: Inverse of a Matrix -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">7. Core Concept</span>
+    <h2 class="slide-title">Inverse of a Matrix (A<sup>−1</sup>)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка: Формула и правила -->
+      <div class="card">
+        <h3 class="card-title">Formula & Rules</h3>
+        
+        <div class="matrix-box" style="font-size: 19px; margin: 15px 0;">
+          <span>A<sup>−1</sup> = <sup>1</sup>/<sub>det(A)</sub> · adj(A)</span>
+        </div>
+
+        <ul class="bullet-list">
+          <li><strong>Fundamental Rule:</strong> A · A<sup>−1</sup> = A<sup>−1</sup> · A = I</li>
+          <li><strong>Existence Condition:</strong> Inverse exists <em>only if</em> det(A) ≠ 0.</li>
+          <li><strong>2×2 Shortcut:</strong>
+            <br>1. Swap main diagonal elements.
+            <br>2. Change signs of off-diagonal elements.
+            <br>3. Divide by det(A).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Правая карточка: Пример -->
+      <div class="card">
+        <h3 class="card-title">2×2 Calculation Example</h3>
+        
+        <p class="text-p"><strong>Given Matrix A:</strong></p>
+        <div class="matrix-box" style="margin: 8px 0;">
+          <span style="font-weight: bold; margin-right: 8px;">A =</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>4</td><td>3</td></tr>
+              <tr><td>1</td><td>2</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <p class="text-p" style="margin-top: 10px;">
+          <strong>Step 1:</strong> det(A) = 4·2 − 3·1 = <strong>5</strong> (≠ 0)
+        </p>
+
+        <p class="text-p" style="margin-top: 10px;">
+          <strong>Step 2:</strong> Apply 2×2 shortcut:
+        </p>
+        
+        <div class="matrix-box" style="margin-top: 8px;">
+          <span style="font-weight: bold; margin-right: 8px;">A<sup>−1</sup> = <sup>1</sup>/<sub>5</sub></span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>2</td><td>−3</td></tr>
+              <tr><td>−1</td><td>4</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 8 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 9: Step-by-Step -->
+<!-- SLIDE 9: Step-by-Step Inversion Pipeline -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">8. ALGORITHM</span>
+    <h2 class="slide-title">Step-by-Step Inversion Pipeline</h2>
+  </div>
+  <div class="slide-body">
+    
+    <!-- Карточка с шагами -->
+    <div class="card" style="margin-bottom: 15px;">
+      <ul class="bullet-list" style="margin: 0;">
+        <li><strong>Step 1: Calculate Determinant:</strong> Find det(A). If det(A) = 0, stop! (No inverse).</li>
+        <li><strong>Step 2: Build Minor Matrix:</strong> Compute all minors M<sub>ij</sub>.</li>
+        <li><strong>Step 3: Apply Sign Grid:</strong> Multiply minors by (−1)<sup>i+j</sup> to build Cofactor Matrix C.</li>
+        <li><strong>Step 4: Transpose C:</strong> Swap rows and columns to obtain Adjugate Matrix adj(A) = C<sup>T</sup>.</li>
+        <li><strong>Step 5: Scale:</strong> Multiply adj(A) by scalar (1 / det A) to get final inverse A<sup>−1</sup>.</li>
+      </ul>
+    </div>
+
+    <!-- Карточка с примером снизу -->
+    <div class="card">
+      <h3 class="card-title">Example Walkthrough (2×2)</h3>
+      <div style="display: flex; align-items: center; justify-content: space-around; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
+        
+        <!-- Исходная матрица -->
+        <div class="matrix-box">
+          <span style="font-weight: bold; margin-right: 8px;">A =</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>1</td><td>2</td></tr>
+              <tr><td>3</td><td>4</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Промежуточные вычисления -->
+        <div style="font-size: 14px; line-height: 1.6;">
+          <p class="text-p" style="margin: 2px 0;"><strong>1. det(A)</strong> = 1·4 − 2·3 = <strong>−2</strong></p>
+          <p class="text-p" style="margin: 2px 0;"><strong>2-3. Cofactor C:</strong> [ 4, −3 ; −2, 1 ]</p>
+          <p class="text-p" style="margin: 2px 0;"><strong>4. adj(A) = C<sup>T</sup>:</strong> [ 4, −2 ; −3, 1 ]</p>
+        </div>
+
+        <!-- Результат -->
+        <div class="matrix-box">
+          <span style="font-weight: bold; margin-right: 8px;">A<sup>−1</sup> = −<sup>1</sup>/<sub>2</sub></span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>4</td><td>−2</td></tr>
+              <tr><td>−3</td><td>1</td></tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra</span>
+    <span>Slide 9 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 10: Graphics (DARK CHARCOAL) -->
+<!-- SLIDE 10: Computer Graphics -->
+<div class="slide slide-dark">
+  <div class="slide-header">
+    <span class="category-tag">9. REAL-WORLD APPLICATION 1</span>
+    <h2 class="slide-title">Computer Graphics & 3D Game Engines</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка -->
+      <div class="card">
+        <h3 class="card-title">3D Transformations</h3>
+        <p class="text-p">
+          All 3D objects are point matrices. 4×4 Transformation matrices handle translation, rotation, and scaling.
+        </p>
+
+        <!-- Выровненный блок с правильными скобками -->
+        <div class="math-block" style="margin-top: 15px; display: flex; justify-content: center; align-items: center; padding: 12px 8px;">
+          <div class="matrix-box" style="margin: 0; gap: 8px; font-size: 13px; color: #ffffff; align-items: center; display: flex;">
+            
+            <!-- Вектор X' Y' Z' 1 -->
+            <div class="matrix-brackets">
+              <table class="matrix-table mini">
+                <tr><td>X'</td></tr>
+                <tr><td>Y'</td></tr>
+                <tr><td>Z'</td></tr>
+                <tr><td>1</td></tr>
+              </table>
+            </div>
+
+            <span style="font-weight: bold; margin: 0 2px;">=</span>
+
+            <!-- Матрица 4x4 -->
+            <div class="matrix-brackets">
+              <table class="matrix-table mini">
+                <tr><td>R<sub>11</sub></td><td>R<sub>12</sub></td><td>R<sub>13</sub></td><td>T<sub>x</sub></td></tr>
+                <tr><td>R<sub>21</sub></td><td>R<sub>22</sub></td><td>R<sub>23</sub></td><td>T<sub>y</sub></td></tr>
+                <tr><td>R<sub>31</sub></td><td>R<sub>32</sub></td><td>R<sub>33</sub></td><td>T<sub>z</sub></td></tr>
+                <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+              </table>
+            </div>
+
+            <span style="font-weight: bold; margin: 0 2px;">·</span>
+
+            <!-- Вектор X Y Z 1 -->
+            <div class="matrix-brackets">
+              <table class="matrix-table mini">
+                <tr><td>X</td></tr>
+                <tr><td>Y</td></tr>
+                <tr><td>Z</td></tr>
+                <tr><td>1</td></tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Правая карточка -->
+      <div class="card">
+        <h3 class="card-title">Camera Views & Inverses</h3>
+        <ul class="bullet-list">
+          <li>To render a frame, world coordinates are converted to camera space using the <strong>Inverse View Matrix (V<sup>−1</sup>)</strong>.</li>
+          <li>GPUs calculate millions of matrix inverses per second in games.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Real-World Applications</span>
+    <span>Slide 10 / 14</span>
+  </div>
+</div>
+
+
+
+<!-- SLIDE 11: Cryptography -->
+<!-- SLIDE 11: Cryptography: Hill Cipher -->
+<div class="slide slide-dark">
+  <div class="slide-header">
+    <span class="category-tag">10. REAL-WORLD APPLICATION 2</span>
+    <h2 class="slide-title">Cryptography: Hill Cipher</h2>
+  </div>
+  <div class="slide-body" style="padding: 0 15px;">
+    
+    <!-- Четкая двухколоночная сетка с равными отступами -->
+    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; box-sizing: border-box;">
+      
+      <!-- Левая карточка: Шифрование -->
+      <div class="card" style="width: 100%; box-sizing: border-box;">
+        <h3 class="card-title">1. Encrypting (Scrambling Text)</h3>
+        <p class="text-p">
+          Letters are converted to numbers (A=0, B=1...). We multiply text blocks by a secret Key Matrix (K) to lock and scramble the message.
+        </p>
+
+        <div class="math-block" style="margin-top: 15px; padding: 14px; text-align: center; border-left: none;">
+          <span style="font-size: 15px; font-weight: bold; color: #ffffff;">
+            Ciphertext = ( K · Message ) mod 26
+          </span>
+        </div>
+
+        <p class="text-p" style="margin-top: 14px; font-size: 13px; opacity: 0.85; line-height: 1.4;">
+          💡 <strong>Analogy:</strong> Matrix K acts as a digital lock that scrambles readable text into hidden code.
+        </p>
+      </div>
+
+      <!-- Правая карточка: Расшифровка -->
+      <div class="card" style="width: 100%; box-sizing: border-box;">
+        <h3 class="card-title">2. Decrypting with Inverse (K<sup>−1</sup>)</h3>
+        <p class="text-p">
+          To read the message, the recipient must "undo" matrix multiplication using the secret Inverse Matrix (K<sup>−1</sup>).
+        </p>
+
+        <div class="math-block" style="margin-top: 15px; padding: 14px; text-align: center; border-left: none;">
+          <span style="font-size: 15px; font-weight: bold; color: #ffffff;">
+            Message = ( K<sup>−1</sup> · Ciphertext ) mod 26
+          </span>
+        </div>
+
+        <p class="text-p" style="margin-top: 14px; font-size: 13px; opacity: 0.85; line-height: 1.4;">
+          🔑 <strong>Key Requirement:</strong> If det(K) = 0, no inverse matrix exists — meaning the lock could never be opened!
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Real-World Applications</span>
+    <span>Slide 11 / 14</span>
+  </div>
+</div>
+
+   
+
+     
+
+<!-- SLIDE 12: Linear Systems -->
+<!-- SLIDE 12: Systems of Equations & Engineering -->
+<div class="slide slide-dark">
+  <div class="slide-header">
+    <span class="category-tag">11. REAL-WORLD APPLICATION 3</span>
+    <h2 class="slide-title">Solving Systems of Equations & Engineering</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка: Математическая суть -->
+      <div class="card">
+        <h3 class="card-title">Matrix Equations</h3>
+        <p class="text-p">
+          Systems of linear equations are expressed in matrix form and solved directly using the inverse matrix:
+        </p>
+
+        <div class="math-block" style="margin-top: 15px; display: flex; justify-content: center; align-items: center; padding: 14px 16px; text-align: center;">
+          <span style="font-size: 16px; font-weight: bold; color: #ffffff;">
+            A · x = b &nbsp;&nbsp;⟹&nbsp;&nbsp; x = A<sup>−1</sup> · b
+          </span>
+        </div>
+
+        <p class="text-p" style="margin-top: 14px; font-size: 13px; opacity: 0.85;">
+          💡 <strong>Key Concept:</strong> Multiplying by <strong>A<sup>−1</sup></strong> isolates vector <strong>x</strong>, solving thousands of equations at once.
+        </p>
+      </div>
+
+      <!-- Правая карточка: Применение в инженерии -->
+      <div class="card">
+        <h3 class="card-title">Practical Engineering</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Electrical Circuits:</strong> Solving Kirchhoff's current and voltage laws for complex node voltages.
+          </li>
+          <li>
+            <strong>Structural Engineering:</strong> Calculating stress, strain, and load capacity on bridges using finite element stiffness matrices.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Real-World Applications</span>
+    <span>Slide 12 / 14</span>
+  </div>
+</div>
+<!-- SLIDE 13: AI & Economics -->
+<!-- SLIDE 13: Machine Learning, Economics & Quantum -->
+<div class="slide slide-dark">
+  <div class="slide-header">
+    <span class="category-tag">12. REAL-WORLD APPLICATION 4</span>
+    <h2 class="slide-title">Machine Learning, Economics & Quantum</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка: Машинное обучение -->
+      <div class="card">
+        <h3 class="card-title">Machine Learning & AI</h3>
+        <p class="text-p">
+          Linear regression optimizes weight matrices using normal equations to calculate optimal parameters:
+        </p>
+
+        <div class="math-block" style="margin-top: 15px; display: flex; justify-content: center; align-items: center; padding: 14px 16px; text-align: center;">
+          <span style="font-size: 15px; font-weight: bold; color: #ffffff;">
+            w = (X<sup>T</sup> · X)<sup>−1</sup> · X<sup>T</sup> · y
+          </span>
+        </div>
+
+        <p class="text-p" style="margin-top: 12px; font-size: 13px; opacity: 0.85;">
+          🤖 <strong>Application:</strong> Used for training AI regression models and processing datasets in data science.
+        </p>
+      </div>
+
+      <!-- Правая карточка: Экономика и квантовые вычисления -->
+      <div class="card">
+        <h3 class="card-title">Economics & Quantum</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Leontief Input-Output Model:</strong> Uses <strong>(I − A)<sup>−1</sup></strong> to balance production and demand across national economic sectors.
+          </li>
+          <li>
+            <strong>Quantum Computing:</strong> Quantum gates are unitary matrices where inverse <strong>U<sup>−1</sup> = U<sup>†</sup></strong>, ensuring quantum logic operations are reversible.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Real-World Applications</span>
+    <span>Slide 13 / 14</span>
+  </div>
+</div>
+
+<!-- SLIDE 14: Summary -->
+<!-- SLIDE 14: Conclusion / Key Takeaways -->
+<!-- SLIDE 14: Conclusion / Key Takeaways -->
+<div class="slide slide-dark">
+  <div class="slide-header">
+    <span class="category-tag">13. CONCLUSION</span>
+    <h2 class="slide-title">Key Takeaways & Summary</h2>
+  </div>
+  <div class="slide-body">
+    
+    <!-- Вертикальное расположение карточек (одна под другой) -->
+    <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+      
+      <!-- Верхняя карточка: Логическая цепочка во всю ширину -->
+      <div class="card" style="width: 100%; box-sizing: border-box;">
+        <h3 class="card-title">Logical Execution Chain</h3>
+        <p class="text-p" style="margin-bottom: 10px;">
+          The step-by-step process of finding the inverse matrix:
+        </p>
+
+        <!-- Цепочка шагов строго в одну горизонтальную строку -->
+        <div class="math-block" style="margin-top: 12px; padding: 18px 20px; text-align: center; width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center; border-left: none;">
+          <span style="font-size: 18px; font-weight: bold; color: #ffffff; white-space: nowrap;letter-spacing: 0.5px;">
+            Matrix A &nbsp;⟹&nbsp; det(A) &nbsp;⟹&nbsp; Minors M<sub>ij</sub> &nbsp;⟹&nbsp; Cofactors C<sub>ij</sub> &nbsp;⟹&nbsp; adj(A) &nbsp;⟹&nbsp; Inverse A<sup>−1</sup>
+          </span>
+        </div>
+
+        <p class="text-p" style="margin-top: 14px; font-size: 15px; opacity: 0.95;">
+          📌 <strong>Workflow:</strong> Each step builds directly on the previous computation.
+        </p>
+      </div>
+
+      <!-- Нижняя карточка: Ключевые выводы -->
+      <div class="card" style="width: 100%; box-sizing: border-box;">
+        <h3 class="card-title">Key Summary Points</h3>
+        <ul class="bullet-list" style="font-size: 13px; line-height: 1.5; margin: 0; padding-left: 18px;">
+          <li style="margin-bottom: 8px;">
+            <strong>Check Determinant First:</strong> If det(A) = 0, no inverse matrix exists.
+          </li>
+          <li style="margin-bottom: 8px;">
+            <strong>Core Identity:</strong> A · A<sup>−1</sup> = I.
+          </li>
+          <li>
+            <strong>Practical Importance:</strong> Foundation of 3D graphics, AI optimization, cryptography, and structural engineering.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Presentation</span>
+    <span>Slide 14 / 14</span>
+  </div>
+</div>
+
+     
+
+ 
+</body>
+</html>
