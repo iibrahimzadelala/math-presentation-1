@@ -33,6 +33,7 @@
 <body>
 
 <!-- SLIDE 1: Title Slide (green) -->
+
 <div class="slide slide-dark">
   <div class="slide-body" style="justify-content: center;">
     <span class="category-tag">Linear Algebra Masterclass</span>
@@ -44,13 +45,12 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-footer">
     <span>Lecture Presentation</span>
-    <span>Slide 1 / 14</span>
+    <span>Slide 1</span>
   </div>
 </div>
 
-<!-- SLIDE 2: Fundamentals -->
+<!-- SLIDE 2: Fundamentals & Matrix Dimensions -->
 
-<!-- SLIDE 2: Fundamentals -->
 <div class="slide">
   <div class="slide-header">
     <span class="category-tag">1. Foundation</span>
@@ -58,123 +58,506 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-body">
     <div class="grid-2">
+      
+      <!-- Левая карточка: Определение и стандартная формула -->
       <div class="card">
-        <div>
-          <h3 class="card-title">What is a Matrix?</h3>
-          <p class="text-p">A rectangular array of numbers, symbols, or expressions arranged in <strong>m rows</strong> and <strong>n columns</strong>.</p>
-          
-          <div class="matrix-box">
-            <span style="font-weight: bold; margin-right: 10px;">A =</span>
-            <div class="matrix-brackets">
-              <table class="matrix-table">
-                <tr>
-                  <td>a<sub>11</sub></td>
-                  <td>a<sub>12</sub></td>
-                  <td>a<sub>13</sub></td>
-                </tr>
-                <tr>
-                  <td>a<sub>21</sub></td>
-                  <td>a<sub>22</sub></td>
-                  <td>a<sub>23</sub></td>
-                </tr>
-              </table>
-            </div>
+        <h3 class="card-title">What is a Matrix?</h3>
+        <p class="text-p">
+          A rectangular array of numbers, symbols, or expressions arranged in <strong>m rows</strong> and <strong>n columns</strong>.
+        </p>
+
+        <div class="matrix-box" style="justify-content: center; margin: 20px 0;">
+          <span style="font-weight: bold; margin-right: 12px; font-size: 22px;">A =</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table">
+              <tr>
+                <td>a<sub>11</sub></td>
+                <td>a<sub>12</sub></td>
+                <td>a<sub>13</sub></td>
+              </tr>
+              <tr>
+                <td>a<sub>21</sub></td>
+                <td>a<sub>22</sub></td>
+                <td>a<sub>23</sub></td>
+              </tr>
+            </table>
           </div>
+          <span style="font-size: 16px; color: #64748b; margin-left: 8px;">(3 × 2)</span>
         </div>
-        <p class="text-p">Dimension is expressed as <strong>m × n</strong> (Rows × Columns).</p>
+
+        <p class="text-p" style="font-size: 16px; color: #64748b; text-align: center;">
+          Dimension is written as <strong>m × n</strong> (Rows × Columns).
+        </p>
       </div>
 
+      <!-- Правая карточка: Примеры матриц разного размера -->
       <div class="card">
-        <h3 class="card-title">Key Matrix Types</h3>
-        <ul class="bullet-list">
-          <li><strong>Square Matrix:</strong> Same number of rows and columns (m = n). Required for determinants and inverses.</li>
-          <li><strong>Identity Matrix (I):</strong> Diagonal contains 1s, all other entries are 0. Serves as '1' in matrix algebra.</li>
-          <li><strong>Zero Matrix (O):</strong> Matrix with all zero entries.</li>
-        </ul>
+        <h3 class="card-title">Matrices of Various Sizes</h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 5px;">
+          
+          <!-- Прямоугольная 3x2 -->
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 10px; text-align: center;">
+            <span style="font-size: 13px; font-weight: bold; color: #475569; display: block; margin-bottom: 6px;">3 × 2 Matrix</span>
+            <div class="matrix-box" style="font-size: 15px; margin: 0; justify-content: center;">
+              <div class="matrix-brackets">
+                <table class="matrix-table mini">
+                  <tr><td>1</td><td>2</td></tr>
+                  <tr><td>3</td><td>0</td></tr>
+                  <tr><td>5</td><td>-1</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Квадратная 2x2 -->
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 10px; text-align: center;">
+            <span style="font-size: 13px; font-weight: bold; color: #475569; display: block; margin-bottom: 6px;">2 × 2 Square</span>
+            <div class="matrix-box" style="font-size: 15px; margin: 0; justify-content: center;">
+              <div class="matrix-brackets">
+                <table class="matrix-table mini">
+                  <tr><td>2</td><td>1</td></tr>
+                  <tr><td>0</td><td>4</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Вектор-столбец 3x1 -->
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 10px; text-align: center;">
+            <span style="font-size: 13px; font-weight: bold; color: #475569; display: block; margin-bottom: 6px;">Column Matrix (3 × 1)</span>
+            <div class="matrix-box" style="font-size: 15px; margin: 0; justify-content: center;">
+              <div class="matrix-brackets">
+                <table class="matrix-table mini">
+                  <tr><td>1</td></tr>
+                  <tr><td>2</td></tr>
+                  <tr><td>3</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Вектор-строка 1x3 -->
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 10px; text-align: center;">
+            <span style="font-size: 13px; font-weight: bold; color: #475569; display: block; margin-bottom: 6px;">Row Matrix (1 × 3)</span>
+            <div class="matrix-box" style="font-size: 15px; margin: 0; justify-content: center;">
+              <div class="matrix-brackets">
+                <table class="matrix-table mini">
+                  <tr><td>4</td><td>5</td><td>6</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </div>
   <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 2 / 14</span>
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 2</span>
   </div>
 </div>
 
-<!-- SLIDE 3: Operations -->
+
+<!-- SLIDE 3: Key Matrix Types (3x3 Examples & Larger Cards) -->
+
 <div class="slide">
   <div class="slide-header">
-    <span class="category-tag">2. Operations</span>
-    <h2 class="slide-title">Core Matrix Operations</h2>
+    <span class="category-tag">2. Foundation</span>
+    <h2 class="slide-title">Key Matrix Types</h2>
+  </div>
+  <div class="slide-body" style="justify-content: stretch;">
+    
+    <!-- Сетка 3x2 карточек с увеличенной высотой -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; height: 100%; min-height: 420px;">
+      
+      <!-- 1. Square Matrix -->
+      <div class="card" style="padding: 24px 20px; text-align: center; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="card-title" style="font-size: 20px; margin-bottom: 6px;">Square Matrix</h3>
+          <p class="text-p" style="font-size: 14px; margin-bottom: 0; line-height: 1.3;">
+            Same number of rows & columns (<strong>m = n</strong>).
+          </p>
+        </div>
+        <div class="matrix-box" style="font-size: 18px; justify-content: center; margin: 0;">
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>1</td><td>2</td><td>3</td></tr>
+              <tr><td>4</td><td>5</td><td>6</td></tr>
+              <tr><td>7</td><td>8</td><td>9</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Identity Matrix -->
+      <div class="card" style="padding: 24px 20px; text-align: center; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="card-title" style="font-size: 20px; margin-bottom: 6px;">Identity Matrix (I)</h3>
+          <p class="text-p" style="font-size: 14px; margin-bottom: 0; line-height: 1.3;">
+            Diagonal is 1s, all other elements are 0.
+          </p>
+        </div>
+        <div class="matrix-box" style="font-size: 18px; justify-content: center; margin: 0;">
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>1</td><td>0</td><td>0</td></tr>
+              <tr><td>0</td><td>1</td><td>0</td></tr>
+              <tr><td>0</td><td>0</td><td>1</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Zero Matrix -->
+      <div class="card" style="padding: 24px 20px; text-align: center; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="card-title" style="font-size: 20px; margin-bottom: 6px;">Zero Matrix (O)</h3>
+          <p class="text-p" style="font-size: 14px; margin-bottom: 0; line-height: 1.3;">
+            Matrix with all zero entries.
+          </p>
+        </div>
+        <div class="matrix-box" style="font-size: 18px; justify-content: center; margin: 0;">
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>0</td><td>0</td><td>0</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Scalar Matrix -->
+      <div class="card" style="padding: 24px 20px; text-align: center; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="card-title" style="font-size: 20px; margin-bottom: 6px;">Scalar Matrix</h3>
+          <p class="text-p" style="font-size: 14px; margin-bottom: 0; line-height: 1.3;">
+            Diagonal entries are equal (<strong>a<sub>ii</sub> = k</strong>).
+          </p>
+        </div>
+        <div class="matrix-box" style="font-size: 18px; justify-content: center; margin: 0;">
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>5</td><td>0</td><td>0</td></tr>
+              <tr><td>0</td><td>5</td><td>0</td></tr>
+              <tr><td>0</td><td>0</td><td>5</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Upper Triangular -->
+      <div class="card" style="padding: 24px 20px; text-align: center; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="card-title" style="font-size: 20px; margin-bottom: 6px;">Upper Triangular</h3>
+          <p class="text-p" style="font-size: 14px; margin-bottom: 0; line-height: 1.3;">
+            All entries below main diagonal are 0.
+          </p>
+        </div>
+        <div class="matrix-box" style="font-size: 18px; justify-content: center; margin: 0;">
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>1</td><td>2</td><td>3</td></tr>
+              <tr><td>0</td><td>5</td><td>4</td></tr>
+              <tr><td>0</td><td>0</td><td>-1</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Lower Triangular -->
+      <div class="card" style="padding: 24px 20px; text-align: center; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="card-title" style="font-size: 20px; margin-bottom: 6px;">Lower Triangular</h3>
+          <p class="text-p" style="font-size: 14px; margin-bottom: 0; line-height: 1.3;">
+            All entries above main diagonal are 0.
+          </p>
+        </div>
+        <div class="matrix-box" style="font-size: 18px; justify-content: center; margin: 0;">
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>2</td><td>0</td><td>0</td></tr>
+              <tr><td>4</td><td>1</td><td>0</td></tr>
+              <tr><td>3</td><td>5</td><td>6</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 3</span>
+  </div>
+</div>
+
+<!-- SLIDE 4: Basic Operations -->
+
+<!-- SLIDE 4: Basic Operations -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">3. Operations</span>
+    <h2 class="slide-title">Basic Matrix Operations</h2>
   </div>
   <div class="slide-body">
     <div class="grid-2">
       
-      <!-- Карточка 1 -->
+      <!-- Сложение и вычитание -->
       <div class="card">
-        <h3 class="card-title">Addition & Scalar Multiplication</h3>
-        <ul class="bullet-list">
-          <li><strong>Addition (A + B):</strong> Performed element-by-element.
-            <div class="math-example">
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table></div>
-              <span>+</span>
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td></tr></table></div>
-              <span>=</span>
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>6</td><td>8</td></tr><tr><td>10</td><td>12</td></tr></table></div>
-            </div>
-          </li>
-          <li><strong>Scalar Multiplication (k·A):</strong> Multiply every element by k.
-            <div class="math-example">
-              <span>3 ×</span>
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table></div>
-              <span>=</span>
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>3</td><td>6</td></tr><tr><td>9</td><td>12</td></tr></table></div>
-            </div>
-          </li>
-        </ul>
+        <h3 class="card-title">1. Addition & Subtraction</h3>
+        <p class="text-p" style="font-size: 15px;">
+          Matrices must have the <strong>same dimensions</strong>. Performed element-by-element.
+        </p>
+
+        <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-top: 10px;">
+          <span style="font-size: 14px; font-weight: bold; color: #475569; display: block; margin-bottom: 8px;">A + B (Addition):</span>
+          <div class="math-example" style="justify-content: center; margin: 0;">
+            <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>a<sub>11</sub></td><td>a<sub>12</sub></td></tr><tr><td>a<sub>21</sub></td><td>a<sub>22</sub></td></tr></table></div>
+            <span>+</span>
+            <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>b<sub>11</sub></td><td>b<sub>12</sub></td></tr><tr><td>b<sub>21</sub></td><td>b<sub>22</sub></td></tr></table></div>
+            <span>=</span>
+            <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>a<sub>11</sub>+b<sub>11</sub></td><td>a<sub>12</sub>+b<sub>12</sub></td></tr><tr><td>a<sub>21</sub>+b<sub>21</sub></td><td>a<sub>22</sub>+b<sub>22</sub></td></tr></table></div>
+          </div>
+        </div>
+
+        <p class="text-p" style="font-size: 14px; margin-top: 10px; color: #64748b;">
+          ✔ Commutative: <strong>A + B = B + A</strong>
+        </p>
       </div>
 
-      <!-- Карточка 2 -->
+      <!-- Умножение на скаляр и условия равенства -->
       <div class="card">
-        <h3 class="card-title">Matrix Multiplication (A · B)</h3>
-        <ul class="bullet-list">
-          <li><strong>Dimension Rule:</strong> Columns of A must equal rows of B.</li>
-          <li><strong>Calculation Example:</strong> Row × Column dot product.
-            <div class="math-example">
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>1</td><td>2</td></tr><tr><td>0</td><td>3</td></tr></table></div>
-              <span>·</span>
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>2</td><td>1</td></tr><tr><td>4</td><td>0</td></tr></table></div>
-              <span>=</span>
-              <div class="matrix-brackets"><table class="matrix-table mini"><tr><td>10</td><td>1</td></tr><tr><td>12</td><td>0</td></tr></table></div>
+        <h3 class="card-title">2. Scalar Multiplication & Equality</h3>
+        
+        <p class="text-p" style="font-size: 15px;">
+          <strong>Scalar Multiplication (λ·A):</strong> Multiply <em>every</em> element by scalar λ.
+        </p>
+
+        <div class="math-example" style="justify-content: center; margin: 10px 0;">
+          <span style="font-size: 18px; font-weight: bold;">5 ×</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>2</td><td>3</td></tr>
+              <tr><td>7</td><td>11</td></tr>
+            </table>
+          </div>
+          <span>=</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>10</td><td>15</td></tr>
+              <tr><td>35</td><td>55</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <p class="text-p" style="font-size: 15px; margin-top: 15px;">
+          <strong>Matrix Equality (A = B):</strong> Same sizes and <strong>a<sub>ij</sub> = b<sub>ij</sub></strong> for all elements.
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 4</span>
+  </div>
+</div>
+
+<!-- SLIDE 5: Matrix Multiplication Step-by-Step -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">4. Operations</span>
+    <h2 class="slide-title">Matrix Multiplication (Dot Product)</h2>
+  </div>
+  <div class="slide-body">
+    
+    <!-- Карточка с правилом размерности -->
+    <div class="card" style="padding: 16px 20px; margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <span style="font-size: 16px; font-weight: bold; color: #0f172a;">
+          Dimension Compatibility Rule:
+        </span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #ff57bc; font-weight: bold;">
+          A<sub>(m × n)</sub> · B<sub>(n × p)</sub> = C<sub>(m × p)</sub>
+        </span>
+        <span style="font-size: 14px; color: #ef4444; font-weight: bold;">
+          ⚠️ Non-Commutative: A · B ≠ B · A
+        </span>
+      </div>
+    </div>
+
+    <!-- Пошаговая визуализация -->
+    <div class="card" style="padding: 20px;">
+      <h3 class="card-title" style="font-size: 20px; margin-bottom: 12px;">Step-by-Step Calculation: Row × Column</h3>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
+        
+        <!-- Левая часть: Исходные матрицы A и B -->
+        <div style="background: #f8fafc; border: 2px dashed #cbd5e1; padding: 16px; border-radius: 12px; text-align: center;">
+          <span style="font-size: 14px; font-weight: bold; color: #475569; display: block; margin-bottom: 10px;">Given Matrices:</span>
+          
+          <div class="math-example" style="justify-content: center; font-size: 18px; gap: 12px;">
+            <span>A =</span>
+            <div class="matrix-brackets" style="border-color: #2563eb; background: #eff6ff;">
+              <table class="matrix-table mini">
+                <tr style="color: #2563eb; font-weight: bold;"><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td></tr>
+              </table>
             </div>
+            
+            <span>B =</span>
+            <div class="matrix-brackets" style="border-color: #16a34a; background: #f0fdf4;">
+              <table class="matrix-table mini">
+                <tr style="color: #16a34a; font-weight: bold;"><td>5</td><td>6</td></tr>
+                <tr style="color: #16a34a; font-weight: bold;"><td>7</td><td>8</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая часть: Расчет каждого элемента -->
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.8;">
+          <div style="background: #eff6ff; padding: 6px 12px; border-radius: 6px; margin-bottom: 6px; border-left: 4px solid #2563eb;">
+            <strong>c<sub>11</sub></strong> = (Row 1 of A) · (Col 1 of B) = <span style="color: #2563eb;">1·5 + 2·7</span> = <strong>19</strong>
+          </div>
+          <div style="background: #f1f5f9; padding: 6px 12px; border-radius: 6px; margin-bottom: 6px;">
+            <strong>c<sub>12</sub></strong> = (Row 1 of A) · (Col 2 of B) = 1·6 + 2·8 = <strong>22</strong>
+          </div>
+          <div style="background: #f1f5f9; padding: 6px 12px; border-radius: 6px; margin-bottom: 6px;">
+            <strong>c<sub>21</sub></strong> = (Row 2 of A) · (Col 1 of B) = 3·5 + 4·7 = <strong>43</strong>
+          </div>
+          <div style="background: #f1f5f9; padding: 6px 12px; border-radius: 6px; margin-bottom: 6px;">
+            <strong>c<sub>22</sub></strong> = (Row 2 of A) · (Col 2 of B) = 3·6 + 4·8 = <strong>50</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Итоговый результат -->
+      <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; text-align: center;">
+        <div class="math-example" style="justify-content: center; font-size: 20px;">
+          <span style="font-weight: bold;">Result C = A · B =</span>
+          <div class="matrix-brackets">
+            <table class="matrix-table mini">
+              <tr><td>19</td><td>22</td></tr>
+              <tr><td>43</td><td>50</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 5</span>
+  </div>
+</div>
+
+<!-- SLIDE 6: Matrix Transposition -->
+
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">5. Operations</span>
+    <h2 class="slide-title">Matrix Transposition (A<sup>T</sup>)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка: Определение и пример -->
+      <div class="card">
+        <h3 class="card-title">Definition & Mechanical View</h3>
+        <p class="text-p" style="font-size: 15px;">
+          The transpose of an <strong>m × n</strong> matrix <strong>A</strong> is an <strong>n × m</strong> matrix <strong>A<sup>T</sup></strong> formed by converting <strong>rows into columns</strong> (and vice versa).
+        </p>
+
+        <div class="math-block" style="font-size: 16px; text-align: center; margin: 12px 0;">
+          Element Mapping: (a<sub>ij</sub>) ⟹ (a<sub>ji</sub>)
+        </div>
+
+        <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; text-align: center; margin-top: 10px;">
+          <span style="font-size: 13px; font-weight: bold; color: #475569; display: block; margin-bottom: 8px;">Example (3 × 2 ⟹ 2 × 3):</span>
+          <div class="math-example" style="justify-content: center; font-size: 16px; gap: 10px;">
+            <span style="font-weight: bold;">A =</span>
+            <div class="matrix-brackets">
+              <table class="matrix-table mini">
+                <tr><td>2</td><td>3</td></tr>
+                <tr><td>4</td><td>5</td></tr>
+                <tr><td>0</td><td>1</td></tr>
+              </table>
+            </div>
+            <span>⟹ A<sup>T</sup> =</span>
+            <div class="matrix-brackets">
+              <table class="matrix-table mini">
+                <tr><td>2</td><td>4</td><td>0</td></tr>
+                <tr><td>3</td><td>5</td><td>1</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Правая карточка: 5 ключевых свойств -->
+      <div class="card">
+        <h3 class="card-title">Fundamental Properties of A<sup>T</sup></h3>
+        
+        <ul class="bullet-list" style="font-size: 15px; gap: 10px;">
+          <li>
+            <strong>Additivity & Subtraction:</strong><br>
+            <span style="font-family: 'JetBrains Mono', monospace; color: #0f172a; font-weight: bold;">(A ± B)<sup>T</sup> = A<sup>T</sup> ± B<sup>T</sup></span>
           </li>
-          <li><strong>Non-Commutative:</strong> Generally, <strong>A · B ≠ B · A</strong>.</li>
+          <li>
+            <strong>Scalar Scaling:</strong><br>
+            <span style="font-family: 'JetBrains Mono', monospace; color: #0f172a; font-weight: bold;">(k·A)<sup>T</sup> = k·A<sup>T</sup></span>
+          </li>
+          <li>
+            <strong>Reversal Rule (Multiplication):</strong><br>
+            <span style="font-family: 'JetBrains Mono', monospace; color: #ef4444; font-weight: bold;">(A · B)<sup>T</sup> = B<sup>T</sup> · A<sup>T</sup></span> <em>(Notice order reversal!)</em>
+          </li>
+          <li>
+            <strong>Double Transpose:</strong><br>
+            <span style="font-family: 'JetBrains Mono', monospace; color: #0f172a; font-weight: bold;">(A<sup>T</sup>)<sup>T</sup> = A</span>
+          </li>
+          <li>
+            <strong>Inverse Transpose:</strong><br>
+            <span style="font-family: 'JetBrains Mono', monospace; color: #0f172a; font-weight: bold;">(A<sup>−1</sup>)<sup>T</sup> = (A<sup>T</sup>)<sup>−1</sup></span>
+          </li>
         </ul>
       </div>
 
     </div>
   </div>
   <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 3 / 14</span>
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 6</span>
   </div>
 </div>
 
-<!-- SLIDE 4: Determinants -->
-<!-- SLIDE 4: Determinant -->
+<!-- SLIDE 7: Determinant Calculation -->
+
+<!-- SLIDE 7: Determinant Concept & 2x2 -->
 <div class="slide">
   <div class="slide-header">
-    <span class="category-tag">2. Operations</span>
+    <span class="category-tag">6. Determinants</span>
     <h2 class="slide-title">Matrix Determinant (|A| or det A)</h2>
   </div>
   <div class="slide-body">
     <div class="grid-2">
       
-      <!-- Левая карточка -->
-      <div class="card">
-        <h3 class="card-title">2×2 Determinant Formula</h3>
-        <p class="text-p">A scalar value calculated strictly for square matrices.</p>
+      <!-- Левая карточка: 2x2 Вычисление -->
+      <div class="card" style="padding: 24px; justify-content: space-around;">
+        <h3 class="card-title" style="font-size: 22px;">2×2 Determinant Calculation</h3>
+        <p class="text-p" style="font-size: 15px;">
+          Calculated by cross-multiplying main and anti-diagonals.
+        </p>
 
-        <div class="det-box">
+        <div class="det-box" style="justify-content: center; font-size: 20px; margin: 12px 0;">
           <span>det</span>
           <div class="det-bars">
             <table class="matrix-table mini">
@@ -185,286 +568,413 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
           <span>= (a·d − b·c)</span>
         </div>
 
-        <div class="det-box" style="font-size: 16px; margin-top: 15px;">
-          <strong>Example:</strong>
-          <span>det</span>
-          <div class="det-bars">
-            <table class="matrix-table mini">
-              <tr><td>4</td><td>3</td></tr>
-              <tr><td>1</td><td>2</td></tr>
-            </table>
-          </div>
-          <span>= (4·2 − 3·1) = 5</span>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 10px; font-size: 15px;">
+          <strong>Example:</strong> det | 4 &nbsp; 3 ; 1 &nbsp; 2 | = (4·2 − 3·1) = <strong>5</strong>
         </div>
       </div>
 
-      <!-- Правая карточка -->
-      <div class="card">
-        <h3 class="card-title">Singular vs Non-Singular</h3>
-        <ul class="bullet-list">
-          <li><strong>Singular Matrix:</strong> det(A) = 0. The matrix has no inverse.</li>
-          <li><strong>Non-Singular Matrix:</strong> det(A) ≠ 0. The matrix is invertible.</li>
-          <li><strong>Geometric View:</strong> Determinant measures the area/volume scaling factor of a transformation.</li>
-        </ul>
+      <!-- Правая карточка: Invertibility Condition -->
+      <div class="card" style="padding: 24px; justify-content: space-around;">
+        <h3 class="card-title" style="font-size: 22px;">Invertibility Condition</h3>
+        
+        <!-- Non-Singular -->
+        <div style="background: #f0fdf4; border: 2px solid #bbf7d0; padding: 12px 14px; border-radius: 10px;">
+          <span style="font-weight: 800; color: #166534; font-size: 16px; display: block; margin-bottom: 4px;">
+            ✔ Non-Singular (Invertible): det(A) ≠ 0
+          </span>
+          <p style="font-size: 14px; color: #15803d; margin: 0;">
+            Matrix has a unique inverse. Area scaling factor &gt; 0.
+          </p>
+        </div>
+
+        <!-- Singular -->
+        <div style="background: #fef2f2; border: 2px solid #fecaca; padding: 12px 14px; border-radius: 10px;">
+          <span style="font-weight: 800; color: #991b1b; font-size: 16px; display: block; margin-bottom: 4px;">
+            ❌ Singular (Non-Invertible): det(A) = 0
+          </span>
+          <p style="font-size: 14px; color: #b91c1c; margin: 0;">
+            No inverse exists! Transformation collapses area to 0.
+          </p>
+        </div>
+
       </div>
 
     </div>
   </div>
   <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 4 / 14</span>
-  </div>
-</div>
-
-<!-- SLIDE 5: Minors -->
-<!-- SLIDE 5: Minor of a Matrix -->
-<div class="slide">
-  <div class="slide-header">
-    <span class="category-tag">4. Minor Extraction</span>
-    <h2 class="slide-title">Minor of a Matrix (M<sub>ij</sub>)</h2>
-  </div>
-  <div class="slide-body">
-    <div class="card">
-      <h3 class="card-title">Definition & Calculation</h3>
-      <p class="text-p">
-        The Minor <strong>M<sub>ij</sub></strong> of element <strong>a<sub>ij</sub></strong> is the determinant of the smaller submatrix left after deleting the <strong>i-th row</strong> and <strong>j-th column</strong>.
-      </p>
-
-      <!-- Матрица A -->
-      <div style="margin-top: 15px;">
-        <p class="text-p" style="margin-bottom: 8px;"><strong>Given Matrix:</strong></p>
-        <div class="matrix-box">
-          <span style="font-weight: bold; margin-right: 10px;">A =</span>
-          <div class="matrix-brackets">
-            <table class="matrix-table">
-              <tr><td>1</td><td>2</td><td>3</td></tr>
-              <tr><td>0</td><td>4</td><td>5</td></tr>
-              <tr><td>1</td><td>0</td><td>6</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Вычисление минора -->
-      <div style="margin-top: 20px;">
-        <p class="text-p" style="margin-bottom: 8px;">
-          To find Minor <strong>M<sub>11</sub></strong> (delete Row 1, Column 1):
-        </p>
-        <div class="det-box">
-          <span>M<sub>11</sub> = det</span>
-          <div class="det-bars">
-            <table class="matrix-table mini">
-              <tr><td>4</td><td>5</td></tr>
-              <tr><td>0</td><td>6</td></tr>
-            </table>
-          </div>
-          <span>= (4·6 − 5·0) = 24</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 5 / 14</span>
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 7</span>
   </div>
 </div>
 
 
-<!-- SLIDE 6: Cofactor of a Matrix -->
+<!-- SLIDE 8: Determinant Properties -->
+
+<!-- SLIDE 8: 3x3 Determinant Calculation -->
 <div class="slide">
   <div class="slide-header">
-    <span class="category-tag">5. Sign Patterns</span>
-    <h2 class="slide-title">Cofactor of a Matrix (C<sub>ij</sub>)</h2>
+    <span class="category-tag">7. Determinants</span>
+    <h2 class="slide-title">Calculating 3×3 Determinant</h2>
   </div>
   <div class="slide-body">
     <div class="grid-2">
       
-      <!-- Левая карточка -->
-      <div class="card">
-        <h3 class="card-title">The Cofactor Formula</h3>
-        <p class="text-p">
-          A cofactor is a minor with a position-based sign (+ or −) applied.
+      <!-- Левая карточка: Формула Саррюса -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px; margin-bottom: 6px;">Rule of Sarrus (Formula)</h3>
+        <p class="text-p" style="font-size: 17px; margin-bottom: 8px;">
+          Sum of 3 main diagonal products minus 3 anti-diagonal products:
         </p>
 
-        <div class="matrix-box" style="font-size: 20px;">
-          <span>C<sub>ij</sub> = (−1)<sup>i + j</sup> · M<sub>ij</sub></span>
+        <div class="math-block" style="font-size: 16px; padding: 16px; line-height: 1.7; white-space: normal; margin: 8px 0; border-left-width: 5px;">
+          <strong>det(A) =</strong><br>
+          <span style="color: #166534; font-weight: bold;">+ (a₁₁a₂₂a₃₃ + a₂₁a₃₂a₁₃ + a₁₂a₂₃a₃₁)</span><br>
+          <span style="color: #991b1b; font-weight: bold;">− (a₁₃a₂₂a₃₁ + a₂₃a₃₂a₁₁ + a₁₂a₂₁a₃₃)</span>
         </div>
 
-        <ul class="bullet-list">
-          <li><strong>If (i + j) is EVEN:</strong> C<sub>ij</sub> = +M<sub>ij</sub></li>
-          <li><strong>If (i + j) is ODD:</strong> C<sub>ij</sub> = −M<sub>ij</sub></li>
-        </ul>
+        <p class="text-p" style="font-size: 15px; color: #475569; margin: 0;">
+          💡 <em>Tip: You can also use cofactor expansion along any row or column with the most zeros.</em>
+        </p>
       </div>
 
-      <!-- Правая карточка -->
-      <div class="card">
-        <h3 class="card-title">Checkerboard Sign Grid</h3>
+      <!-- Правая карточка: Пошаговый численный пример -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px; margin-bottom: 6px;">Step-by-Step Example</h3>
         
-        <div class="matrix-box">
-          <div class="matrix-brackets">
-            <table class="matrix-table">
-              <tr><td>+</td><td>−</td><td>+</td></tr>
-              <tr><td>−</td><td>+</td><td>−</td></tr>
-              <tr><td>+</td><td>−</td><td>+</td></tr>
-            </table>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 12px; margin-bottom: 6px;">
+          <span style="font-size: 16px; font-weight: bold; color: #334155;">Matrix A:</span>
+          <div class="det-box" style="justify-content: center; font-size: 18px; margin-top: 6px;">
+            <span style="font-weight: bold;">|A| =</span>
+            <div class="det-bars">
+              <table class="matrix-table mini" style="font-size: 18px;">
+                <tr><td>1</td><td>2</td><td>3</td></tr>
+                <tr><td>0</td><td>1</td><td>4</td></tr>
+                <tr><td>5</td><td>6</td><td>0</td></tr>
+              </table>
+            </div>
           </div>
         </div>
 
-        <p class="text-p" style="margin-top: 15px;">
-          Signs alternate across every row and column.
-        </p>
+        <div style="font-size: 16px; line-height: 1.6;">
+          <div style="color: #166534; font-weight: bold;">
+            (+) Diagonals: (1·1·0) + (0·6·3) + (2·4·5) = <strong>40</strong>
+          </div>
+          <div style="color: #991b1b; font-weight: bold; margin-top: 4px;">
+            (−) Diagonals: (3·1·5) + (4·6·1) + (2·0·0) = <strong>39</strong>
+          </div>
+          <div style="margin-top: 10px; font-size: 18px; font-weight: 800; background: #e2e8f0; padding: 8px 12px; border-radius: 8px; text-align: center; color: #0f172a;">
+            det(A) = 40 − 39 = 1 &nbsp;(Non-Singular)
+          </div>
+        </div>
+
       </div>
 
     </div>
   </div>
   <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 6 / 14</span>
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 8</span>
   </div>
 </div>
 
+ <!-- SLIDE 9: Minors & Cofactors -->
 
-<!-- SLIDE 7: Adjugate -->
-<!-- SLIDE 7: Cofactor Matrix & Adjugate -->
+<!-- SLIDE 9: Minors & Cofactors -->
 <div class="slide">
   <div class="slide-header">
-    <span class="category-tag">6. Matrix Transformation</span>
-    <h2 class="slide-title">Cofactor Matrix & Adjugate (adj A)</h2>
+    <span class="category-tag">8. Matrix Elements</span>
+    <h2 class="slide-title">Minors (M<sub>ij</sub>) & Cofactors (C<sub>ij</sub>)</h2>
   </div>
   <div class="slide-body">
     <div class="grid-2">
       
-      <!-- Левая карточка -->
-      <div class="card">
-        <h3 class="card-title">1. Cofactor Matrix (C)</h3>
-        <p class="text-p">
-          Replace every entry <strong>a<sub>ij</sub></strong> in Matrix A with its calculated cofactor <strong>C<sub>ij</sub></strong>.
+      <!-- Левая карточка: Минор -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px;">1. Minor (M<sub>ij</sub>)</h3>
+        <p class="text-p" style="font-size: 17px; margin-bottom: 8px;">
+          The determinant of the submatrix left after deleting <strong>row i</strong> and <strong>column j</strong>.
         </p>
 
-        <div class="matrix-box">
-          <span style="font-weight: bold; margin-right: 10px;">C =</span>
-          <div class="matrix-brackets">
-            <table class="matrix-table">
-              <tr>
-                <td>C<sub>11</sub></td>
-                <td>C<sub>12</sub></td>
-                <td>C<sub>13</sub></td>
-              </tr>
-              <tr>
-                <td>C<sub>21</sub></td>
-                <td>C<sub>22</sub></td>
-                <td>C<sub>23</sub></td>
-              </tr>
-              <tr>
-                <td>C<sub>31</sub></td>
-                <td>C<sub>32</sub></td>
-                <td>C<sub>33</sub></td>
-              </tr>
-            </table>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 16px; border-radius: 12px;">
+          <span style="font-size: 16px; font-weight: bold; color: #334155;">Example for M₁₁ (Delete Row 1, Col 1):</span>
+          <div style="font-size: 16px; margin-top: 10px; line-height: 1.6; font-family: 'JetBrains Mono', monospace;">
+            Matrix A = | 1 2 3 ; 0 4 5 ; 1 0 6 |<br>
+            Submatrix = | 4 5 ; 0 6 |<br>
+            <strong style="color: #2563eb; font-size: 18px;">M₁₁ = (4·6 − 5·0) = 24</strong>
           </div>
         </div>
       </div>
 
-      <!-- Правая карточка -->
-      <div class="card">
-        <h3 class="card-title">2. Adjugate Matrix (adj A)</h3>
-        <p class="text-p">
-          The Adjugate is the <strong>Transpose</strong> of the Cofactor Matrix C.
+      <!-- Правая карточка: Алгебраическое дополнение -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px;">2. Cofactor (C<sub>ij</sub>)</h3>
+        <p class="text-p" style="font-size: 17px; margin-bottom: 8px;">
+          Signed minor determined by element position:
+          <strong style="font-size: 20px; color: #2563eb; display: block; margin-top: 6px;">C<sub>ij</sub> = (−1)<sup>i+j</sup> · M<sub>ij</sub></strong>
         </p>
 
-        <div class="matrix-box" style="font-size: 22px; margin: 25px 0;">
-          <span>adj(A) = C<sup>T</sup></span>
+        <!-- Sign Pattern Matrix -->
+        <div style="background: #f0fdf4; border: 2px solid #bbf7d0; padding: 14px 18px; border-radius: 12px;">
+          <span style="font-weight: bold; color: #166534; font-size: 16px; display: block; margin-bottom: 6px;">
+            Checkerboard Sign Pattern (−1)<sup>i+j</sup>:
+          </span>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; text-align: center; font-weight: bold; color: #0f172a; letter-spacing: 6px;">
+            + &nbsp; − &nbsp; +<br>
+            − &nbsp; + &nbsp; −<br>
+            + &nbsp; − &nbsp; +
+          </div>
         </div>
 
-        <p class="text-p">
-          Swap rows with columns: element <strong>C<sub>ij</sub></strong> moves to position <strong>(j, i)</strong>.
-        </p>
       </div>
 
     </div>
   </div>
   <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 7 / 14</span>
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 9</span>
   </div>
 </div>
-
-<!-- SLIDE 8: Inverse of a Matrix -->
+ 
+ <!-- SLIDE 10: Cofactor Expansion -->
 <div class="slide">
   <div class="slide-header">
-    <span class="category-tag">7. Core Concept</span>
-    <h2 class="slide-title">Inverse of a Matrix (A<sup>−1</sup>)</h2>
+    <span class="category-tag">9. Matrix Elements</span>
+    <h2 class="slide-title">Laplace Expansion (Cofactor Expansion)</h2>
   </div>
   <div class="slide-body">
     <div class="grid-2">
       
-      <!-- Левая карточка: Формула и правила -->
-      <div class="card">
-        <h3 class="card-title">Formula & Rules</h3>
-        
-        <div class="matrix-box" style="font-size: 19px; margin: 15px 0;">
-          <span>A<sup>−1</sup> = <sup>1</sup>/<sub>det(A)</sub> · adj(A)</span>
+      <!-- Теория разложения -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px;">Expansion Along Any Row / Column</h3>
+        <p class="text-p" style="font-size: 17px; margin-bottom: 8px;">
+          The determinant equals the sum of elements multiplied by their corresponding cofactors:
+        </p>
+
+        <div class="math-block" style="font-size: 17px; padding: 16px; line-height: 1.6; white-space: normal; margin: 10px 0; border-left-width: 5px;">
+          <strong>det(A) = a<sub>i1</sub>C<sub>i1</sub> + a<sub>i2</sub>C<sub>i2</sub> + ... + a<sub>in</sub>C<sub>in</sub></strong>
         </div>
 
-        <ul class="bullet-list">
-          <li><strong>Fundamental Rule:</strong> A · A<sup>−1</sup> = A<sup>−1</sup> · A = I</li>
-          <li><strong>Existence Condition:</strong> Inverse exists <em>only if</em> det(A) ≠ 0.</li>
-          <li><strong>2×2 Shortcut:</strong>
-            <br>1. Swap main diagonal elements.
-            <br>2. Change signs of off-diagonal elements.
-            <br>3. Divide by det(A).
-          </li>
-        </ul>
+        <div style="background: #fef3c7; border: 1px solid #fde047; padding: 12px 16px; border-radius: 10px; font-size: 15px; color: #78350f;">
+          💡 <strong>Best Strategy:</strong> Choose the row or column with the most zeros to minimize calculations!
+        </div>
       </div>
 
-      <!-- Правая карточка: Пример -->
-      <div class="card">
-        <h3 class="card-title">2×2 Calculation Example</h3>
+      <!-- Практический пример -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px;">Practical Example</h3>
         
-        <p class="text-p"><strong>Given Matrix A:</strong></p>
-        <div class="matrix-box" style="margin: 8px 0;">
-          <span style="font-weight: bold; margin-right: 8px;">A =</span>
-          <div class="matrix-brackets">
-            <table class="matrix-table mini">
-              <tr><td>4</td><td>3</td></tr>
-              <tr><td>1</td><td>2</td></tr>
-            </table>
+        <div style="font-size: 16px; line-height: 1.6;">
+          <p style="margin-bottom: 8px; font-weight: bold;">Expand along Row 1:</p>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 14px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 16px;">
+            det(A) = a₁₁C₁₁ + a₁₂C₁₂ + a₁₃C₁₃
+          </div>
+          <p style="margin-top: 12px; font-size: 16px;">
+            Using elements from Row 1 = [1, 2, 3]:<br>
+            <span style="color: #2563eb; font-weight: bold; font-size: 17px;">det(A) = 1·(C₁₁) + 2·(C₁₂) + 3·(C₁₃)</span>
+          </p>
+          <div style="margin-top: 14px; background: #e2e8f0; padding: 10px 14px; border-radius: 8px; font-weight: bold; text-align: center; font-size: 17px; color: #0f172a;">
+            Allows calculating n×n determinants easily!
           </div>
         </div>
 
-        <p class="text-p" style="margin-top: 10px;">
-          <strong>Step 1:</strong> det(A) = 4·2 − 3·1 = <strong>5</strong> (≠ 0)
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 10</span>
+  </div>
+</div>
+
+ <!-- SLIDE 11: Inverse Matrix -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">10. Matrix Inverse</span>
+    <h2 class="slide-title">Inverse Matrix (A<sup>−1</sup>)</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка: Определение и Формула -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px;">Definition & Formula</h3>
+        <p class="text-p" style="font-size: 16px; line-height: 1.5;">
+          The inverse matrix A<sup>−1</sup> satisfies: <strong style="color: #2563eb;">A · A<sup>−1</sup> = A<sup>−1</sup> · A = I</strong> (where I is Identity Matrix).
         </p>
 
-        <p class="text-p" style="margin-top: 10px;">
-          <strong>Step 2:</strong> Apply 2×2 shortcut:
+        <div class="math-block" style="font-size: 18px; padding: 16px; text-align: center; margin: 10px 0; border-left-width: 5px;">
+          <strong>A<sup>−1</sup> = <span style="font-size: 20px; color: #2563eb;">¹⁄<sub>det(A)</sub></span> · adj(A)</strong>
+        </div>
+
+        <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 12px 16px; border-radius: 10px; font-size: 15px; color: #991b1b;">
+          ⚠️ <strong>Requirement:</strong> Exists ONLY if <strong>det(A) ≠ 0</strong> (Non-singular matrix).
+        </div>
+      </div>
+
+      <!-- Правая карточка: Быстрая формула для 2x2 -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px;">2×2 Quick Inverse Shortcut</h3>
+        <p class="text-p" style="font-size: 16px;">
+          Swap main diagonal elements, negate anti-diagonal elements:
         </p>
         
-        <div class="matrix-box" style="margin-top: 8px;">
-          <span style="font-weight: bold; margin-right: 8px;">A<sup>−1</sup> = <sup>1</sup>/<sub>5</sub></span>
-          <div class="matrix-brackets">
-            <table class="matrix-table mini">
-              <tr><td>2</td><td>−3</td></tr>
-              <tr><td>−1</td><td>4</td></tr>
-            </table>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 16px; border-radius: 12px;">
+          <div style="font-size: 17px; font-family: 'JetBrains Mono', monospace; line-height: 1.6; text-align: center;">
+            If A = | a &nbsp; b ; c &nbsp; d |<br>
+            <strong style="color: #2563eb; font-size: 18px; display: block; margin-top: 6px;">
+              A<sup>−1</sup> = ¹⁄<sub>(ad − bc)</sub> · | d &nbsp; −b ; −c &nbsp; a |
+            </strong>
           </div>
+        </div>
+
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 10px 14px; border-radius: 8px; font-size: 15px; color: #166534;">
+          <strong>Example:</strong> For | 4 3 ; 1 2 |, det = 5 ⟹ <strong>A<sup>−1</sup> = ⅕ · | 2 −3 ; −1 4 |</strong>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 11</span>
+  </div>
+</div>
+ 
+
+<!-- SLIDE 12: 3x3 Inverse Algorithm -->
+
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">11. Matrix Inverse</span>
+    <h2 class="slide-title">4-Step Algorithm for 3×3 Matrix Inverse</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Карточка: Шаги алгоритма -->
+      <div class="card" style="padding: 28px;">
+        <h3 class="card-title" style="font-size: 24px; margin-bottom: 16px;">The 4-Step Process</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 17px;">
+          <div style="background: #f8fafc; border-left: 5px solid #2563eb; padding: 12px 16px; border-radius: 6px;">
+            <strong>Step 1:</strong> Find <strong>det(A)</strong>. Ensure det(A) ≠ 0.
+          </div>
+          <div style="background: #f8fafc; border-left: 5px solid #2563eb; padding: 12px 16px; border-radius: 6px;">
+            <strong>Step 2:</strong> Build Matrix of Minors <strong>M<sub>ij</sub></strong>.
+          </div>
+          <div style="background: #f8fafc; border-left: 5px solid #2563eb; padding: 12px 16px; border-radius: 6px;">
+            <strong>Step 3:</strong> Apply sign pattern to get Cofactor Matrix <strong>C<sub>ij</sub></strong>.
+          </div>
+          <div style="background: #f8fafc; border-left: 5px solid #166534; padding: 12px 16px; border-radius: 6px;">
+            <strong>Step 4:</strong> Transpose C to get Adjugate: <strong>adj(A) = C<sup>T</sup></strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка: Итоговая формула и предупреждение -->
+      <div class="card" style="padding: 28px;">
+        <h3 class="card-title" style="font-size: 24px; margin-bottom: 16px;">Final Formula & Warning</h3>
+        
+        <div class="math-block" style="font-size: 20px; padding: 20px; text-align: center; margin-bottom: 16px; border-left-width: 5px;">
+          <strong>A<sup>−1</sup> = <span style="color: #2563eb;">¹⁄<sub>det(A)</sub></span> · C<sup>T</sup></strong>
+        </div>
+
+        <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 14px 16px; border-radius: 10px; font-size: 15px; color: #991b1b; line-height: 1.5;">
+          ⚠️ <strong>Common Mistake:</strong> Don't forget to transpose the cofactor matrix! <strong>adj(A) = C<sup>T</sup></strong>, not C.
         </div>
       </div>
 
     </div>
   </div>
   <div class="slide-footer">
-    <span>Linear Algebra</span>
-    <span>Slide 8 / 14</span>
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 12</span>
   </div>
 </div>
 
-<!-- SLIDE 9: Step-by-Step -->
-<!-- SLIDE 9: Step-by-Step Inversion Pipeline -->
+<!-- SLIDE 13: Properties of Inverse Matrix -->
 <div class="slide">
   <div class="slide-header">
-    <span class="category-tag">8. ALGORITHM</span>
+    <span class="category-tag">12. Matrix Inverse</span>
+    <h2 class="slide-title">Key Properties of Matrix Inverse</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      
+      <!-- Левая карточка: Алгебраические свойства -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px; margin-bottom: 12px;">Algebraic Properties</h3>
+        
+        <!-- Свойство 1 -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 10px; margin-bottom: 10px;">
+          <span style="font-size: 14px; color: #64748b; font-weight: bold; text-transform: uppercase;">1. Involution (Double Inverse)</span>
+          <div style="font-size: 18px; font-weight: bold; color: #0f172a; margin-top: 4px;">
+            (A<sup>−1</sup>)<sup>−1</sup> = A
+          </div>
+        </div>
+
+        <!-- Свойство 2 -->
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px 16px; border-radius: 10px; margin-bottom: 10px;">
+          <span style="font-size: 14px; color: #1d4ed8; font-weight: bold; text-transform: uppercase;">2. Product Rule (Reversibility)</span>
+          <div style="font-size: 18px; font-weight: bold; color: #1e40af; margin-top: 4px;">
+            (A · B)<sup>−1</sup> = B<sup>−1</sup> · A<sup>−1</sup>
+          </div>
+          <span style="font-size: 13px; color: #3b82f6; display: block; margin-top: 2px;">⚠️ Note: Order reverses!</span>
+        </div>
+
+        <!-- Свойство 3 -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 10px;">
+          <span style="font-size: 14px; color: #64748b; font-weight: bold; text-transform: uppercase;">3. Transpose Interchange</span>
+          <div style="font-size: 18px; font-weight: bold; color: #0f172a; margin-top: 4px;">
+            (A<sup>T</sup>)<sup>−1</sup> = (A<sup>−1</sup>)<sup>T</sup>
+          </div>
+        </div>
+      </div>
+
+      <!-- Правая карточка: Связь с детерминантом и скаляром -->
+      <div class="card" style="padding: 28px; justify-content: space-between;">
+        <h3 class="card-title" style="font-size: 24px; margin-bottom: 12px;">Determinant & Scalar</h3>
+        
+        <!-- Свойство 4 -->
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 14px 16px; border-radius: 10px; margin-bottom: 12px;">
+          <span style="font-size: 14px; color: #15803d; font-weight: bold; text-transform: uppercase;">4. Determinant Relationship</span>
+          <div style="font-size: 19px; font-weight: bold; color: #166534; margin-top: 4px;">
+            det(A<sup>−1</sup>) = <span style="font-size: 20px;">¹⁄<sub>det(A)</sub></span>
+          </div>
+        </div>
+
+        <!-- Свойство 5 -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 14px 16px; border-radius: 10px; margin-bottom: 12px;">
+          <span style="font-size: 14px; color: #64748b; font-weight: bold; text-transform: uppercase;">5. Scalar Multiplication</span>
+          <div style="font-size: 19px; font-weight: bold; color: #0f172a; margin-top: 4px;">
+            (k · A)<sup>−1</sup> = <span style="font-size: 20px;">¹⁄<sub>k</sub></span> · A<sup>−1</sup>
+          </div>
+          <span style="font-size: 13px; color: #64748b; display: block; margin-top: 2px;">(where k ≠ 0)</span>
+        </div>
+
+        <div style="background: #fef3c7; border: 1px solid #fde047; padding: 10px 14px; border-radius: 8px; font-size: 14px; color: #78350f;">
+          💡 <strong>Key Takeaway:</strong> Matrix multiplication order is critical when distributing inverses!
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Linear Algebra Lecture</span>
+    <span>Slide 13</span>
+  </div>
+</div>
+
+
+<!-- SLIDE 14: Step-by-Step Inversion Pipeline -->
+
+<div class="slide">
+  <div class="slide-header">
+    <span class="category-tag">13. ALGORITHM</span>
     <h2 class="slide-title">Step-by-Step Inversion Pipeline</h2>
   </div>
   <div class="slide-body">
@@ -520,29 +1030,31 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-footer">
     <span>Linear Algebra</span>
-    <span>Slide 9 / 14</span>
+    <span>Slide 14</span>
   </div>
 </div>
 
-<!-- SLIDE 10: Graphics (DARK CHARCOAL) -->
-<!-- SLIDE 10: Computer Graphics -->
+<!-- SLIDE 15: Computer Graphics -->
 <div class="slide slide-dark">
   <div class="slide-header">
-    <span class="category-tag">9. REAL-WORLD APPLICATION 1</span>
+    <span class="category-tag">14. REAL-WORLD APPLICATION 1</span>
     <h2 class="slide-title">Computer Graphics & 3D Game Engines</h2>
   </div>
   <div class="slide-body">
     <div class="grid-2">
       
       <!-- Левая карточка -->
-      <div class="card">
-        <h3 class="card-title">3D Transformations</h3>
-        <p class="text-p">
-          All 3D objects are point matrices. 4×4 Transformation matrices handle translation, rotation, and scaling.
-        </p>
+      <div class="card" style="justify-content: space-between;">
+        <div>
+          <h3 class="card-title">3D Transformations</h3>
+          <p class="text-p" style="margin-bottom: 12px;">
+            All 3D objects are point matrices. 4×4 Transformation matrices handle translation, rotation, and scaling.
+          </p>
+        </div>
 
         <!-- Выровненный блок с правильными скобками -->
-        <div class="math-block" style="margin-top: 15px; display: flex; justify-content: center; align-items: center; padding: 12px 8px;">
+        <div class="math-block" style="margin-top: 10px; display: flex; flex-direction: column; align-items: center; padding: 14px 8px; background: rgba(0, 0, 0, 0.25); border-radius: 8px;">
+          
           <div class="matrix-box" style="margin: 0; gap: 8px; font-size: 13px; color: #ffffff; align-items: center; display: flex;">
             
             <!-- Вектор X' Y' Z' 1 -->
@@ -555,19 +1067,19 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
               </table>
             </div>
 
-            <span style="font-weight: bold; margin: 0 2px;">=</span>
+            <span style="font-weight: bold; margin: 0 2px; color: #fbbf24;">=</span>
 
             <!-- Матрица 4x4 -->
             <div class="matrix-brackets">
               <table class="matrix-table mini">
-                <tr><td>R<sub>11</sub></td><td>R<sub>12</sub></td><td>R<sub>13</sub></td><td>T<sub>x</sub></td></tr>
-                <tr><td>R<sub>21</sub></td><td>R<sub>22</sub></td><td>R<sub>23</sub></td><td>T<sub>y</sub></td></tr>
-                <tr><td>R<sub>31</sub></td><td>R<sub>32</sub></td><td>R<sub>33</sub></td><td>T<sub>z</sub></td></tr>
+                <tr><td>R<sub>11</sub></td><td>R<sub>12</sub></td><td>R<sub>13</sub></td><td style="color: #38bdf8; font-weight: bold;">T<sub>x</sub></td></tr>
+                <tr><td>R<sub>21</sub></td><td>R<sub>22</sub></td><td>R<sub>23</sub></td><td style="color: #38bdf8; font-weight: bold;">T<sub>y</sub></td></tr>
+                <tr><td>R<sub>31</sub></td><td>R<sub>32</sub></td><td>R<sub>33</sub></td><td style="color: #38bdf8; font-weight: bold;">T<sub>z</sub></td></tr>
                 <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
               </table>
             </div>
 
-            <span style="font-weight: bold; margin: 0 2px;">·</span>
+            <span style="font-weight: bold; margin: 0 2px; color: #fbbf24;">·</span>
 
             <!-- Вектор X Y Z 1 -->
             <div class="matrix-brackets">
@@ -580,93 +1092,106 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
             </div>
 
           </div>
+
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 8px; text-align: center;">
+            <span style="color: #ffffff;">R<sub>ij</sub></span> = Rotation/Scale &nbsp;|&nbsp; <span style="color: #38bdf8; font-weight: bold;">T<sub>x,y,z</sub></span> = Translation
+          </div>
         </div>
       </div>
 
       <!-- Правая карточка -->
-      <div class="card">
-        <h3 class="card-title">Camera Views & Inverses</h3>
-        <ul class="bullet-list">
-          <li>To render a frame, world coordinates are converted to camera space using the <strong>Inverse View Matrix (V<sup>−1</sup>)</strong>.</li>
-          <li>GPUs calculate millions of matrix inverses per second in games.</li>
-        </ul>
+      <div class="card" style="justify-content: space-between;">
+        <div>
+          <h3 class="card-title">Camera Views & Inverses</h3>
+          <ul class="bullet-list" style="margin-top: 10px; gap: 12px;">
+            <li>To render a frame, world coordinates are converted to camera space using the <strong>Inverse View Matrix (V<sup>−1</sup>)</strong>.</li>
+            <li>GPUs calculate millions of matrix inverses per second in games.</li>
+          </ul>
+        </div>
+
+        <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); padding: 10px 14px; border-radius: 8px; font-size: 13px; color: #38bdf8; margin-top: 12px;">
+          🎮 <strong>Key Role:</strong> Moving the camera in a game is mathematically equivalent to multiplying the world by V<sup>−1</sup>.
+        </div>
       </div>
 
     </div>
   </div>
   <div class="slide-footer">
     <span>Real-World Applications</span>
-    <span>Slide 10 / 14</span>
+    <span>Slide 15 </span>
   </div>
 </div>
 
+<!-- SLIDE 16: Cryptography: Hill Cipher -->
 
-
-<!-- SLIDE 11: Cryptography -->
-<!-- SLIDE 11: Cryptography: Hill Cipher -->
-<div class="slide slide-dark">
-  <div class="slide-header">
-    <span class="category-tag">10. REAL-WORLD APPLICATION 2</span>
-    <h2 class="slide-title">Cryptography: Hill Cipher</h2>
+<div class="slide slide-dark" style="box-sizing: border-box; padding: 18px 28px; display: flex; flex-direction: column; justify-content: space-between;">
+  
+  <!-- Хедер слайда -->
+  <div class="slide-header" style="margin-bottom: 6px;">
+    <span class="category-tag">15. REAL-WORLD APPLICATION 2</span>
+    <h2 class="slide-title" style="margin-top: 2px;">Cryptography: Hill Cipher</h2>
   </div>
-  <div class="slide-body" style="padding: 0 15px;">
-    
-    <!-- Четкая двухколоночная сетка с равными отступами -->
+
+  <!-- Основное тело слайда -->
+  <div class="slide-body" style="flex: 1; display: flex; align-items: center; margin: 4px 0;">
     <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; box-sizing: border-box;">
       
       <!-- Левая карточка: Шифрование -->
-      <div class="card" style="width: 100%; box-sizing: border-box;">
-        <h3 class="card-title">1. Encrypting (Scrambling Text)</h3>
-        <p class="text-p">
-          Letters are converted to numbers (A=0, B=1...). We multiply text blocks by a secret Key Matrix (K) to lock and scramble the message.
-        </p>
+      <div class="card" style="padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+        <div>
+          <h3 class="card-title" style="font-size: 22px; margin-bottom: 8px;">1. Encrypting (Scrambling Text)</h3>
+          <p class="text-p" style="font-size: 15.5px; line-height: 1.45; margin: 0;">
+            Letters are converted to numbers (A=0, B=1...). We multiply text blocks by a secret Key Matrix (K) to lock and scramble the message.
+          </p>
+        </div>
 
-        <div class="math-block" style="margin-top: 15px; padding: 14px; text-align: center; border-left: none;">
-          <span style="font-size: 15px; font-weight: bold; color: #ffffff;">
-            Ciphertext = ( K · Message ) mod 26
+        <div class="math-block" style="margin: 12px 0; padding: 12px; text-align: center; border-left: none; background: rgba(0, 0, 0, 0.3); border-radius: 8px;">
+          <span style="font-size: 18.5px; font-weight: bold; color: #ffffff; font-family: monospace;">
+            Ciphertext = ( <span style="color: #fbbf24;">K</span> · Message ) mod 26
           </span>
         </div>
 
-        <p class="text-p" style="margin-top: 14px; font-size: 13px; opacity: 0.85; line-height: 1.4;">
+        <div style="font-size: 13.5px; color: #cbd5e1; background: rgba(255, 255, 255, 0.05); padding: 10px 12px; border-radius: 6px; border-left: 3px solid #fbbf24; line-height: 1.35;">
           💡 <strong>Analogy:</strong> Matrix K acts as a digital lock that scrambles readable text into hidden code.
-        </p>
+        </div>
       </div>
 
       <!-- Правая карточка: Расшифровка -->
-      <div class="card" style="width: 100%; box-sizing: border-box;">
-        <h3 class="card-title">2. Decrypting with Inverse (K<sup>−1</sup>)</h3>
-        <p class="text-p">
-          To read the message, the recipient must "undo" matrix multiplication using the secret Inverse Matrix (K<sup>−1</sup>).
-        </p>
+      <div class="card" style="padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+        <div>
+          <h3 class="card-title" style="font-size: 22px; margin-bottom: 8px;">2. Decrypting with Inverse (K<sup>−1</sup>)</h3>
+          <p class="text-p" style="font-size: 15.5px; line-height: 1.45; margin: 0;">
+            To read the message, the recipient must "undo" matrix multiplication using the secret Inverse Matrix (K<sup>−1</sup>).
+          </p>
+        </div>
 
-        <div class="math-block" style="margin-top: 15px; padding: 14px; text-align: center; border-left: none;">
-          <span style="font-size: 15px; font-weight: bold; color: #ffffff;">
-            Message = ( K<sup>−1</sup> · Ciphertext ) mod 26
+        <div class="math-block" style="margin: 12px 0; padding: 12px; text-align: center; border-left: none; background: rgba(0, 0, 0, 0.3); border-radius: 8px;">
+          <span style="font-size: 18.5px; font-weight: bold; color: #ffffff; font-family: monospace;">
+            Message = ( <span style="color: #38bdf8;">K<sup>−1</sup></span> · Ciphertext ) mod 26
           </span>
         </div>
 
-        <p class="text-p" style="margin-top: 14px; font-size: 13px; opacity: 0.85; line-height: 1.4;">
-          🔑 <strong>Key Requirement:</strong> If det(K) = 0, no inverse matrix exists — meaning the lock could never be opened!
-        </p>
+        <div style="font-size: 13.5px; color: #fca5a5; background: rgba(239, 68, 68, 0.12); padding: 10px 12px; border-radius: 6px; border: 1px solid rgba(239, 68, 68, 0.3); line-height: 1.35;">
+          🔑 <strong>Key Requirement:</strong> If <strong>det(K) = 0</strong>, no inverse matrix exists — meaning the lock could never be opened!
+        </div>
       </div>
 
     </div>
   </div>
-  <div class="slide-footer">
+
+  <!-- Футер слайда -->
+  <div class="slide-footer" style="margin-top: 4px;">
     <span>Real-World Applications</span>
-    <span>Slide 11 / 14</span>
+    <span>Slide 16</span>
   </div>
 </div>
-
    
 
-     
+<!-- SLIDE 17: Systems of Equations & Engineering -->
 
-<!-- SLIDE 12: Linear Systems -->
-<!-- SLIDE 12: Systems of Equations & Engineering -->
 <div class="slide slide-dark">
   <div class="slide-header">
-    <span class="category-tag">11. REAL-WORLD APPLICATION 3</span>
+    <span class="category-tag">16. REAL-WORLD APPLICATION 3</span>
     <h2 class="slide-title">Solving Systems of Equations & Engineering</h2>
   </div>
   <div class="slide-body">
@@ -707,14 +1232,16 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-footer">
     <span>Real-World Applications</span>
-    <span>Slide 12 / 14</span>
+    <span>Slide 17</span>
   </div>
 </div>
-<!-- SLIDE 13: AI & Economics -->
-<!-- SLIDE 13: Machine Learning, Economics & Quantum -->
+
+
+<!-- SLIDE 18: Machine Learning, Economics & Quantum -->
+
 <div class="slide slide-dark">
   <div class="slide-header">
-    <span class="category-tag">12. REAL-WORLD APPLICATION 4</span>
+    <span class="category-tag">17. REAL-WORLD APPLICATION 4</span>
     <h2 class="slide-title">Machine Learning, Economics & Quantum</h2>
   </div>
   <div class="slide-body">
@@ -755,16 +1282,16 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-footer">
     <span>Real-World Applications</span>
-    <span>Slide 13 / 14</span>
+    <span>Slide 18</span>
   </div>
 </div>
 
-<!-- SLIDE 14: Summary -->
-<!-- SLIDE 14: Conclusion / Key Takeaways -->
-<!-- SLIDE 14: Conclusion / Key Takeaways -->
+
+<!-- SLIDE 19: Conclusion / Key Takeaways -->
+
 <div class="slide slide-dark">
   <div class="slide-header">
-    <span class="category-tag">13. CONCLUSION</span>
+    <span class="category-tag">18. CONCLUSION</span>
     <h2 class="slide-title">Key Takeaways & Summary</h2>
   </div>
   <div class="slide-body">
@@ -811,12 +1338,15 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-footer">
     <span>Linear Algebra Presentation</span>
-    <span>Slide 14 / 14</span>
+    <span>Slide 19</span>
   </div>
 </div>
 
-     
-
+<script src="script.js"></script>
  
+<!-- Пример HTML-кнопок -->
+<button id="prevBtn">← Назад</button>
+<button id="nextBtn">Вперед →</button>
+
 </body>
 </html>
