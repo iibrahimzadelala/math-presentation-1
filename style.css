@@ -266,3 +266,76 @@
     font-size: 20px;
     margin: 12px 0;
   }
+
+  /* --- Адаптивность для планшетов и мобильных устройств --- */
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 15px 10px;
+    gap: 20px;
+  }
+
+  .slide {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 24px 18px !important;
+    border-radius: 12px;
+  }
+
+  /* Превращаем все двухколоночные сетки в одну колонку */
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 16px !important;
+  }
+
+  /* Уменьшаем крупные заголовки под мобильные экраны */
+  .hero-title {
+    font-size: 32px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 20px !important;
+  }
+
+  .slide-title {
+    font-size: 26px !important;
+  }
+
+  .card-title {
+    font-size: 20px !important;
+  }
+
+  .text-p {
+    font-size: 16px !important;
+  }
+
+  .bullet-list li {
+    font-size: 15px !important;
+  }
+
+  .math-block {
+    font-size: 15px !important;
+    padding: 12px 14px !important;
+    overflow-x: auto; /* Чтобы длинные формулы можно было прокрутить вбок */
+  }
+
+  .matrix-box {
+    font-size: 18px !important;
+    overflow-x: auto;
+  }
+
+  .card {
+    padding: 18px !important;
+    gap: 12px !important;
+  }
+}
+
+/* Дополнительно для маленьких телефонов */
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 26px !important;
+  }
+  .slide-title {
+    font-size: 22px !important;
+  }
+}
