@@ -689,6 +689,7 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
     <div class="grid-2">
       
       <!-- Левая карточка: Минор -->
+      <!-- Левая карточка: Минор -->
       <div class="card" style="padding: 28px; justify-content: space-between;">
         <h3 class="card-title" style="font-size: 24px;">1. Minor (M<sub>ij</sub>)</h3>
         <p class="text-p" style="font-size: 17px; margin-bottom: 8px;">
@@ -697,10 +698,29 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
 
         <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 16px; border-radius: 12px;">
           <span style="font-size: 16px; font-weight: bold; color: #334155;">Example for M₁₁ (Delete Row 1, Col 1):</span>
-          <div style="font-size: 16px; margin-top: 10px; line-height: 1.6; font-family: 'JetBrains Mono', monospace;">
-            Matrix A = | 1 2 3 ; 0 4 5 ; 1 0 6 |<br>
-            Submatrix = | 4 5 ; 0 6 |<br>
-            <strong style="color: #2563eb; font-size: 18px;">M₁₁ = (4·6 − 5·0) = 24</strong>
+          
+          <div style="font-size: 16px; margin-top: 12px; font-family: 'JetBrains Mono', monospace;">
+            
+            <!-- Матрица A -->
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+              <span style="color: #334155;">Matrix A =</span>
+              <div style="display: inline-grid; grid-template-columns: repeat(3, 24px); gap: 4px 8px; text-align: center; border-left: 2px solid #334155; border-right: 2px solid #334155; padding: 2px 8px; border-radius: 4px;">
+                <span>1</span><span>2</span><span>3</span>
+                <span>0</span><span>4</span><span>5</span>
+                <span>1</span><span>0</span><span>6</span>
+              </div>
+            </div>
+
+            <!-- Подматрица -->
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+              <span style="color: #334155;">Submatrix =</span>
+              <div style="display: inline-grid; grid-template-columns: repeat(2, 24px); gap: 4px 8px; text-align: center; border-left: 2px solid #2563eb; border-right: 2px solid #2563eb; padding: 2px 8px; border-radius: 4px; background: #eff6ff;">
+                <span style="color: #2563eb; font-weight: bold;">4</span><span style="color: #2563eb; font-weight: bold;">5</span>
+                <span style="color: #2563eb; font-weight: bold;">0</span><span style="color: #2563eb; font-weight: bold;">6</span>
+              </div>
+            </div>
+
+            <strong style="color: #2563eb; font-size: 18px; display: block; margin-top: 8px;">M₁₁ = (4·6 − 5·0) = 24</strong>
           </div>
         </div>
       </div>
@@ -789,6 +809,8 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
 </div>
 
  <!-- SLIDE 11: Inverse Matrix -->
+
+<!-- SLIDE 11: Inverse Matrix -->
 <div class="slide">
   <div class="slide-header">
     <span class="category-tag">10. Matrix Inverse</span>
@@ -815,22 +837,40 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
 
       <!-- Правая карточка: Быстрая формула для 2x2 -->
       <div class="card" style="padding: 28px; justify-content: space-between;">
-        <h3 class="card-title" style="font-size: 24px;">2×2 Quick Inverse Shortcut</h3>
-        <p class="text-p" style="font-size: 16px;">
+        <h3 class="card-title" style="font-size: 22px;">2×2 Quick Inverse Shortcut</h3>
+        <p class="text-p" style="font-size: 15px; margin-bottom: 4px;">
           Swap main diagonal elements, negate anti-diagonal elements:
         </p>
         
-        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 16px; border-radius: 12px;">
-          <div style="font-size: 17px; font-family: 'JetBrains Mono', monospace; line-height: 1.6; text-align: center;">
-            If A = | a &nbsp; b ; c &nbsp; d |<br>
-            <strong style="color: #2563eb; font-size: 18px; display: block; margin-top: 6px;">
-              A<sup>−1</sup> = ¹⁄<sub>(ad − bc)</sub> · | d &nbsp; −b ; −c &nbsp; a |
-            </strong>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 10px;">
+          <div style="font-size: 15px; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>If A =</span>
+            <div style="display: inline-grid; grid-template-columns: repeat(2, 22px); gap: 2px 6px; text-align: center; border-left: 2px solid #334155; border-right: 2px solid #334155; padding: 1px 4px;">
+              <span>a</span><span>b</span>
+              <span>c</span><span>d</span>
+            </div>
+          </div>
+          <div style="font-size: 15px; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px;">
+            <strong style="color: #2563eb;">A<sup>−1</sup> = <span>¹⁄<sub>(ad − bc)</sub></span> ·</strong>
+            <div style="display: inline-grid; grid-template-columns: repeat(2, 28px); gap: 2px 6px; text-align: center; border-left: 2px solid #2563eb; border-right: 2px solid #2563eb; padding: 1px 4px; background: #eff6ff; border-radius: 4px;">
+              <span style="color: #2563eb; font-weight: bold;">d</span><span style="color: #2563eb; font-weight: bold;">−b</span>
+              <span style="color: #2563eb; font-weight: bold;">−c</span><span style="color: #2563eb; font-weight: bold;">a</span>
+            </div>
           </div>
         </div>
 
-        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 10px 14px; border-radius: 8px; font-size: 15px; color: #166534;">
-          <strong>Example:</strong> For | 4 3 ; 1 2 |, det = 5 ⟹ <strong>A<sup>−1</sup> = ⅕ · | 2 −3 ; −1 4 |</strong>
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 10px 12px; border-radius: 8px; font-size: 13px; color: #166534; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap;">
+          <strong style="font-family: inherit;">Example:</strong> For 
+          <div style="display: inline-grid; grid-template-columns: repeat(2, 16px); gap: 2px 4px; text-align: center; border-left: 2px solid #166534; border-right: 2px solid #166534; padding: 1px 3px;">
+            <span>4</span><span>3</span>
+            <span>1</span><span>2</span>
+          </div>
+          <span>, det = 5 ⟹</span>
+          <strong style="color: #166534;">A<sup>−1</sup> = ⅕ ·</strong>
+          <div style="display: inline-grid; grid-template-columns: repeat(2, 20px); gap: 2px 4px; text-align: center; border-left: 2px solid #166534; border-right: 2px solid #166534; padding: 1px 3px; background: #dcfce7; border-radius: 4px;">
+            <span>2</span><span>−3</span>
+            <span>−1</span><span>4</span>
+          </div>
         </div>
 
       </div>
@@ -842,6 +882,7 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
     <span>Slide 11</span>
   </div>
 </div>
+ 
  
 
 <!-- SLIDE 12: 3x3 Inverse Algorithm -->
@@ -1186,112 +1227,11 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
 </div>
    
-
-<!-- SLIDE 17: Systems of Equations & Engineering -->
-
-<div class="slide slide-dark">
-  <div class="slide-header">
-    <span class="category-tag">16. REAL-WORLD APPLICATION 3</span>
-    <h2 class="slide-title">Solving Systems of Equations & Engineering</h2>
-  </div>
-  <div class="slide-body">
-    <div class="grid-2">
-      
-      <!-- Левая карточка: Математическая суть -->
-      <div class="card">
-        <h3 class="card-title">Matrix Equations</h3>
-        <p class="text-p">
-          Systems of linear equations are expressed in matrix form and solved directly using the inverse matrix:
-        </p>
-
-        <div class="math-block" style="margin-top: 15px; display: flex; justify-content: center; align-items: center; padding: 14px 16px; text-align: center;">
-          <span style="font-size: 16px; font-weight: bold; color: #ffffff;">
-            A · x = b &nbsp;&nbsp;⟹&nbsp;&nbsp; x = A<sup>−1</sup> · b
-          </span>
-        </div>
-
-        <p class="text-p" style="margin-top: 14px; font-size: 13px; opacity: 0.85;">
-          💡 <strong>Key Concept:</strong> Multiplying by <strong>A<sup>−1</sup></strong> isolates vector <strong>x</strong>, solving thousands of equations at once.
-        </p>
-      </div>
-
-      <!-- Правая карточка: Применение в инженерии -->
-      <div class="card">
-        <h3 class="card-title">Practical Engineering</h3>
-        <ul class="bullet-list">
-          <li>
-            <strong>Electrical Circuits:</strong> Solving Kirchhoff's current and voltage laws for complex node voltages.
-          </li>
-          <li>
-            <strong>Structural Engineering:</strong> Calculating stress, strain, and load capacity on bridges using finite element stiffness matrices.
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-  <div class="slide-footer">
-    <span>Real-World Applications</span>
-    <span>Slide 17</span>
-  </div>
-</div>
-
-
-<!-- SLIDE 18: Machine Learning, Economics & Quantum -->
+<!-- SLIDE 17: Conclusion / Key Takeaways -->
 
 <div class="slide slide-dark">
   <div class="slide-header">
-    <span class="category-tag">17. REAL-WORLD APPLICATION 4</span>
-    <h2 class="slide-title">Machine Learning, Economics & Quantum</h2>
-  </div>
-  <div class="slide-body">
-    <div class="grid-2">
-      
-      <!-- Левая карточка: Машинное обучение -->
-      <div class="card">
-        <h3 class="card-title">Machine Learning & AI</h3>
-        <p class="text-p">
-          Linear regression optimizes weight matrices using normal equations to calculate optimal parameters:
-        </p>
-
-        <div class="math-block" style="margin-top: 15px; display: flex; justify-content: center; align-items: center; padding: 14px 16px; text-align: center;">
-          <span style="font-size: 15px; font-weight: bold; color: #ffffff;">
-            w = (X<sup>T</sup> · X)<sup>−1</sup> · X<sup>T</sup> · y
-          </span>
-        </div>
-
-        <p class="text-p" style="margin-top: 12px; font-size: 13px; opacity: 0.85;">
-          🤖 <strong>Application:</strong> Used for training AI regression models and processing datasets in data science.
-        </p>
-      </div>
-
-      <!-- Правая карточка: Экономика и квантовые вычисления -->
-      <div class="card">
-        <h3 class="card-title">Economics & Quantum</h3>
-        <ul class="bullet-list">
-          <li>
-            <strong>Leontief Input-Output Model:</strong> Uses <strong>(I − A)<sup>−1</sup></strong> to balance production and demand across national economic sectors.
-          </li>
-          <li>
-            <strong>Quantum Computing:</strong> Quantum gates are unitary matrices where inverse <strong>U<sup>−1</sup> = U<sup>†</sup></strong>, ensuring quantum logic operations are reversible.
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-  <div class="slide-footer">
-    <span>Real-World Applications</span>
-    <span>Slide 18</span>
-  </div>
-</div>
-
-
-<!-- SLIDE 19: Conclusion / Key Takeaways -->
-
-<div class="slide slide-dark">
-  <div class="slide-header">
-    <span class="category-tag">18. CONCLUSION</span>
+    <span class="category-tag">16. CONCLUSION</span>
     <h2 class="slide-title">Key Takeaways & Summary</h2>
   </div>
   <div class="slide-body">
@@ -1338,7 +1278,7 @@ A · A⁻¹ = I   |   A⁻¹ = (1 / det A) · adj(A)
   </div>
   <div class="slide-footer">
     <span>Linear Algebra Presentation</span>
-    <span>Slide 19</span>
+    <span>Slide 17</span>
   </div>
 </div>
 
